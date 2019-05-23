@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../UI/Button/Button';
+import './Ticket.css';
 
 const ticket = props => {
     const {
@@ -14,37 +15,35 @@ const ticket = props => {
         arrival_time,
         carrier,
         stops,
-        price,
+        price
     } = props;
 
     return (
-        <div>
-            <div>
+        <div className="ticket">
+            <div className="ticket-left">
                 <div>{carrier}</div>
                 <Button clicked={() => alert('click')}>Купить за {price}$</Button>
             </div>
-            <div>
-                <div>
-                    <div>
+            <div className="ticket-right">
+                <div className="ticket-times">
+                    <div className="ticket-time ticket-time--departure">
                         {departure_time}
                     </div>
-                    <div>
-                        {stops + stops === 1 ? 'Пересадка' : 'Пересадки'}
+                    <div className="ticket-stops">
+                        {stops ? stops + ' ' + (stops === 1 ? 'Пересадка' : 'Пересадки') : null}
                         <span></span>
                     </div>
-                    <div>
+                    <div className="ticket-time ticket-time--arriaval">
                         {arrival_time}
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <div>{origin}, {origin_name}</div>
-                        <div>{departure_date}</div>
-                    </div>
-                    <div>
-                        <div>{destination_name}, {destination}</div>
-                        <div>{arrival_date}</div>
-                    </div>
+                <div className="ticket-origins">
+                    <div>{origin}, {origin_name}</div>
+                    <div>{destination_name}, {destination}</div>
+                </div>
+                <div className="ticket-dates">
+                    <div>{departure_date}</div>
+                    <div>{arrival_date}</div>
                 </div>
             </div>
         </div>

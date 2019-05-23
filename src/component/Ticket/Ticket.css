@@ -1,0 +1,71 @@
+/* ticket layout */
+
+.ticket {
+    background-color: #fff;
+    margin-top: 20px;
+    max-width: 568px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+.ticket-left {
+    border-right: 1px solid #ECEFF1;
+    padding: 20px;
+    flex: 0 0 200px;
+}
+
+.ticket-right {
+    padding: 19px 25px 20px;
+    flex: 1;
+}
+
+/* ticket times */
+
+.ticket-times {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ticket-time {
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: 1.2px;
+}
+
+.ticket-stops {
+    color: #D2D5D6;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 5px 25px;
+    flex: 1;
+    text-align: center;
+}
+
+.ticket-stops span {
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    background-color: #D2D5D6;
+    margin-top: 6px;
+}
+
+/* ticket origins */
+.ticket-origins {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7px;
+    color: #848484;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    font-weight: 500;
+}
+
+/* dates */
+.ticket-dates {
+    display: flex;
+    justify-content: space-between;
+}
