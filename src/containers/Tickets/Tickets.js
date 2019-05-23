@@ -126,7 +126,7 @@ const data = {
 };
 
 class Tickets extends Component {
-    state = data
+    state = data;
 
     render() {
         return (

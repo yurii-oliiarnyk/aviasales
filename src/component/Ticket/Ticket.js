@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../UI/Button/Button';
 import './Ticket.css';
+import carrierLogo from '../../assets/images/Logo.png';
 
 const ticket = props => {
     const {
@@ -21,7 +22,7 @@ const ticket = props => {
     return (
         <div className="ticket">
             <div className="ticket-left">
-                <div>{carrier}</div>
+                <div><img src={carrierLogo} alt="carrier"/></div>
                 <Button clicked={() => alert('click')}>Купить за {price}$</Button>
             </div>
             <div className="ticket-right">
