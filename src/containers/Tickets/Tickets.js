@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Ticket from '../../component/Ticket/Ticket';
+import './Tickets.css';
 
 const data = {
     "tickets": [{
@@ -129,8 +130,12 @@ class Tickets extends Component {
     state = data;
 
     render() {
+        const tickets = this.state.tickets.map((ticket, key) => <Ticket key={key} {...ticket} />);
+
         return (
-            this.state.tickets.map((ticket, key) => <Ticket key={key} {...ticket} />)
+            <div className="tickets">
+                {tickets}
+            </div>
         );
     }
 };

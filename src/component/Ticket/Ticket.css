@@ -2,19 +2,18 @@
 
 .ticket {
     background-color: #fff;
-    margin-top: 20px;
-    max-width: 568px;
-    margin-left: auto;
-    margin-right: auto;
     border-radius: 5px;
     box-shadow: 0 1px 4px 0 rgba(91, 137, 164, 0.25);
     display: flex;
 }
 
+.ticket + .ticket {
+    margin-top: 20px;
+}
+
 .ticket-left {
     border-right: 1px solid #ECEFF1;
     padding: 20px;
-    flex: 0 0 200px;
 }
 
 .ticket-right {
@@ -69,3 +68,4 @@
 .ticket-dates {
     color: #8B9497;
 }
+

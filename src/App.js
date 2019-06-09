@@ -1,14 +1,19 @@
 import React from 'react';
+import Layout from './hoc/Layout';
 import Tickets from './containers/Tickets/Tickets';
-import Logo from './component/Logo/Logo';
 import Filters from './containers/Filters/Filters';
 
 function App() {
 	return (
 		<div className="App">
-			<Logo />
-			<Tickets />
-			<Filters />
+			<Layout>
+				<div className="container">
+					<div className="row">
+						<Tickets />
+						<Filters />
+					</div>
+				</div>
+			</Layout>
 		</div>
 	);
 }

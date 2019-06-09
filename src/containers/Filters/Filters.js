@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Input from '../../component/UI/Input/Input';
+import './Filters.css';
 
 class Filters extends Component {
     state = {
@@ -53,9 +54,45 @@ class Filters extends Component {
         }
 
         return (
-            <div className="filters">
-                {filterElements}
-            </div>
+            <aside className="filters">
+                <div className="filter-item">
+                    <h5 className="filter-item__title">Валюта</h5>
+                    <div className="filter-item__wrap">
+                        <div className="filter-item__input">
+                            <input name="currency" type="radio" />
+                            <label>RUB</label>
+                        </div>
+                        <div className="filter-item__input">
+                            <input name="currency" type="radio" />
+                            <label>USD</label>
+                        </div>
+                        <div className="filter-item__input">
+                            <input name="currency" type="radio" />
+                            <label>EUR</label>
+                        </div>
+                    </div>
+                </div>
+                <div className="filter-item">
+                    <h5 className="filter-item__title">Количество пересадок</h5>
+                    <div className="filter-item__wrap">
+                        <div className="filter-item__input">
+                            <input name="rub" type="checkbox" />
+                            <label>ВСЕ</label>
+                            <span>Только</span>
+                        </div>
+                        <div className="filter-item__input">
+                            <input name="rub" type="checkbox" />
+                            <label>USD</label>
+                            <span>Только</span>
+                        </div>
+                        <div className="filter-item__input">
+                            <input name="rub" type="checkbox" />
+                            <label>EUR</label>
+                            <span>Только</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
         );
     }
 };

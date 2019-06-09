@@ -4,10 +4,11 @@ import './Logo.css';
 
 const logo = () => (
 	<div className="logo">
-		<img src={LogoImage} alt="Logo"/>
+		<div className="container">
+			<img src={LogoImage} alt="Logo" />
+		</div>
 	</div>
 );
-
 
 export default logo;
 
