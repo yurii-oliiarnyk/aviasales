@@ -1,6 +1,6 @@
 import React from 'react';
 import LogoImage from '../../assets/images/svg.svg';
-import './Logo.css';
+import './Logo.scss';
 
 const logo = () => (
 	<div className="logo">

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Input from '../../component/UI/Input/Input';
-import './Filters.css';
+import Params from '../../component/Params/Params';
+import './Filters.scss';
 
 class Filters extends Component {
     state = {
@@ -17,20 +17,20 @@ class Filters extends Component {
                 },
                 value: 'rub'
             },
-            stops: {
-                label: 'Количество пересадок',
-                elementType: 'checkbox',
-                elementConfig: {
-                    options: [
-                        { value: '', displayValue: 'Все' },
-                        { value: 0, displayValue: 'Без пересадок' },
-                        { value: 1, displayValue: '1 пересадка' },
-                        { value: 2, displayValue: '2 пересадки' },
-                        { value: 3, displayValue: '3 пересадки' },
-                    ]
-                },
-                value: '',
-            }
+            // stops: {
+            //     label: 'Количество пересадок',
+            //     elementType: 'checkbox',
+            //     elementConfig: {
+            //         options: [
+            //             { value: '', displayValue: 'Все' },
+            //             { value: 0, displayValue: 'Без пересадок' },
+            //             { value: 1, displayValue: '1 пересадка' },
+            //             { value: 2, displayValue: '2 пересадки' },
+            //             { value: 3, displayValue: '3 пересадки' },
+            //         ]
+            //     },
+            //     value: '',
+            // }
         }
     }
 
@@ -43,7 +43,7 @@ class Filters extends Component {
 
         for (let el in filters) {
             filterElements.push(
-                <Input
+                <Params
                     key={el}
                     label={filters[el].label}
                     elementConfig={filters[el].elementConfig}
@@ -55,25 +55,12 @@ class Filters extends Component {
 
         return (
             <aside className="filters">
-                <div className="filter-item">
-                    <h5 className="filter-item__title">Валюта</h5>
-                    <div className="filter-item__wrap">
-                        <div className="filter-item__input">
-                            <input name="currency" type="radio" />
-                            <label>RUB</label>
-                        </div>
-                        <div className="filter-item__input">
-                            <input name="currency" type="radio" />
-                            <label>USD</label>
-                        </div>
-                        <div className="filter-item__input">
-                            <input name="currency" type="radio" />
-                            <label>EUR</label>
-                        </div>
+               {filterElements}
+                
+                {/* <div className="filter-params">
+                    <div className="filter-params__header">
+                        <h5 className="filter-params__title">Количество пересадок</h5>
                     </div>
-                </div>
-                <div className="filter-item">
-                    <h5 className="filter-item__title">Количество пересадок</h5>
                     <div className="filter-item__wrap">
                         <div className="filter-item__input">
                             <input name="rub" type="checkbox" />
@@ -91,7 +78,7 @@ class Filters extends Component {
                             <span>Только</span>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </aside>
         );
     }
