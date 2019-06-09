@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './Params.scss';
 
-import * as actions from '../../store/actions';
+import * as actions from '../../store/actions/exchange';
 
 const params = props => {
     const {

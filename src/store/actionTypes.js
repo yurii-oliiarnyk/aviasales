@@ -1,2 +1,0 @@
-export const SET_CURRENCY = 'SET_CURRENCY';
-export const CHANGE_CURRENCY = 'CHANGE_CURRENCY';

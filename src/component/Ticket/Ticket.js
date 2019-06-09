@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '../UI/Button/Button';
 import './Ticket.scss';
 import carrierLogo from '../../assets/images/Logo.png';
+import { connect } from 'react-redux';
 
 const ticket = props => {
     const {
@@ -16,14 +17,25 @@ const ticket = props => {
         arrival_time,
         carrier,
         stops,
-        price
+        price,
+        currentCurrency,
+        exchangeRates
     } = props;
+
+    console.log(currentCurrency);
+
+    const buttonName = currentCurrency === 'eur' ? 
+                        (exchangeRates.EUR * price).toFixed(2) + '$' : 
+                        currentCurrency === 'usd' ? 
+                        (exchangeRates.USD * price).toFixed(2) + '€' : price.toFixed(2) + '₽';
+
+    console.log(buttonName);
 
     return (
         <div className="ticket">
             <div className="ticket-left">
                 <div><img src={carrierLogo} alt="carrier"/></div>
-                <Button clicked={() => alert('click')}>Купить за {price}​₽</Button>
+                <Button clicked={() => alert('click')}>Купить за {buttonName}</Button>
             </div>
             <div className="ticket-right">
                 <div className="ticket-times">
@@ -65,4 +77,11 @@ ticket.propTypes = {
     price: PropTypes.number,
 };
 
-export default ticket;
+const mapStateToProps = state => {
+    return {
+        currentCurrency: state.currency,
+        exchangeRates: state.exchangeRates
+    }
+}
+
+export default connect(mapStateToProps)(ticket);

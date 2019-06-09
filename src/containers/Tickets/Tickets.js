@@ -131,22 +131,6 @@ const data = {
 class Tickets extends Component {
     state = data;
 
-    componentDidMount() {
-        axios.get('http://data.fixer.io/api/latest?access_key=b64dfd4d66e2782be2346d97a79ebca8&format=1&base=EUR&symbols=USD,RUB,EUR')
-            .then(function (response) {
-                // handle success
-                console.log(response);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .finally(function () {
-                // always executed
-            });
-
-    }
-
     render() {
         const tickets = this.state.tickets.map((ticket, key) => <Ticket key={key} {...ticket} />);
 
