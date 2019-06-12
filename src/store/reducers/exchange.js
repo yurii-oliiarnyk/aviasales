@@ -2,7 +2,9 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     currency: 'rub',
-    exchangeRates: {}
+    exchangeRates: {},
+    error: false,
+    loading: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -23,27 +25,26 @@ const reducer = (state = initialState, action) => {
 
             return {
                 ...state,
+                loading: false,
                 exchangeRates: updatedExchangeRates
             }
         }
 
-        // case actionTypes.GET_EXCHANGE_RATE: {
-        //     return {
-        //         ...state,
+        case actionTypes.FETCH_EXCHANGE_RATE_START: {
+            return {
+                ...state,
+                loading: true
+            }
+        }
 
-        //     }
-        // }
-        // case actionTypes.SET_EXCHAGE_RATE: {
-        //     return {
-        //         ...state
-        //     }
-        // }
-
-        // case actionTypes.ERROR_EXCHAGE_RATE: {
-        //     return {
-        //         ...state
-        //     }
-        // }
+        case actionTypes.FETCH_EXCHANGE_RATE_FAILED: {
+            console.log(action);
+            return {
+                ...state,
+                loading: false,
+                error: action.error
+            }
+        }
         
         default: return state;
     };

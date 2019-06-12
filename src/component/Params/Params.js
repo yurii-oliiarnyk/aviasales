@@ -40,7 +40,7 @@ const params = props => {
 
 const mapStateToProps = state => {
     return {
-        currency: state.currency
+        currency: state.currency,
     }
 }
 
