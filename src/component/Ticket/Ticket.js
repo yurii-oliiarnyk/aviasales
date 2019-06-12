@@ -18,24 +18,21 @@ const ticket = props => {
         carrier,
         stops,
         price,
-        currentCurrency,
-        exchangeRates
     } = props;
 
-    console.log(currentCurrency);
-
-    const buttonName = currentCurrency === 'eur' ? 
-                        (exchangeRates.EUR * price).toFixed(2) + '$' : 
-                        currentCurrency === 'usd' ? 
-                        (exchangeRates.USD * price).toFixed(2) + '€' : price.toFixed(2) + '₽';
-
-    console.log(buttonName);
+    const getButtonName = (price) => {
+        switch(props.currentCurrency) {
+            case 'eur': return (props.exchangeRates.EUR * price).toFixed(2) + '€';
+            case 'usd': return (props.exchangeRates.USD * price).toFixed(2) + '$'
+            default: return price + '₽';
+        }
+    }
 
     return (
         <div className="ticket">
             <div className="ticket-left">
                 <div><img src={carrierLogo} alt="carrier"/></div>
-                <Button clicked={() => alert('click')}>Купить за {buttonName}</Button>
+                <Button clicked={() => alert('click')}>Купить за {getButtonName(price)}</Button>
             </div>
             <div className="ticket-right">
                 <div className="ticket-times">

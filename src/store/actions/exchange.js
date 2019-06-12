@@ -22,8 +22,6 @@ export const fetchExchageRateSuccess = (response) => {
 }
 
 export const fetchExchageRateFailed = (error) => {
-    console.log(error);
-
     return {
         type: actionTypes.FETCH_EXCHANGE_RATE_FAILED
     }
