@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Params from '../../component/Params/Params';
+import Exchange from '../../component/Params/Exchange/Exchange';
 import './Filters.scss';
 
 class Filters extends Component {
@@ -43,7 +43,7 @@ class Filters extends Component {
 
         for (let el in filters) {
             filterElements.push(
-                <Params
+                <Exchange
                     key={el}
                     label={filters[el].label}
                     elementConfig={filters[el].elementConfig}

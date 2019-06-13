@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Ticket from '../../component/Ticket/Ticket';
-import axios from 'axios';
 
 import './Tickets.scss';
 
@@ -132,11 +131,9 @@ class Tickets extends Component {
     state = data;
 
     render() {
-        const tickets = this.state.tickets.map((ticket, key) => <Ticket key={key} {...ticket} />);
-
         return (
             <div className="tickets">
-                {tickets}
+                {this.state.tickets.map((ticket, key) => <Ticket key={key} {...ticket} />)}
             </div>
         );
     }
