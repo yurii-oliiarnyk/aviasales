@@ -1,3 +1,1 @@
-export {
-    fetchExchageRate
-} from './exchange';
+export { fetchExchageRate } from './exchange';

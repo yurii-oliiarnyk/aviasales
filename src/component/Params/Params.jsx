@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './Exchange.scss';
-import ParamsHeader from '../ParamsHeader/ParamsHeader';
+import './Params.scss';
 
-import * as actions from '../../../store/actions/exchange';
+import * as actions from '../../store/actions/exchange';
 
-const exchange = props => {
+const params = props => {
   const { label, elementType, elementConfig, currency } = props;
 
   const onCurrencyChange = key => {
@@ -31,8 +30,12 @@ const exchange = props => {
 
   return (
     <div className={classes.join(' ')}>
-      <ParamsHeader label={label} />
-      <ul className="filter-params__list">{items}</ul>
+      <div className="filter-params__header">
+        <h5 className="filter-params__title">{label}</h5>
+      </div>
+      <div className="filter-params__body">
+        <ul className="filter-params__list">{items}</ul>
+      </div>
     </div>
   );
 };
@@ -52,4 +55,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(exchange);
+)(params);

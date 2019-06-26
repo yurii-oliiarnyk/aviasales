@@ -3,50 +3,48 @@ import Exchange from '../../component/Params/Exchange/Exchange';
 import './Filters.scss';
 
 class Filters extends Component {
-    state = {
-        currency: {
-            label: 'Валюта',
-            elementType: 'currency',
-            elementConfig: {
-                options: [
-                    { value: 'rub', displayValue: 'RUB' },
-                    { value: 'usd', displayValue: 'USD' },
-                    { value: 'eur', displayValue: 'EUR' }
-                ]
-            },
-            value: 'rub'
-        },
-        // stops: {
-        //     label: 'Количество пересадок',
-        //     elementType: 'checkbox',
-        //     elementConfig: {
-        //         options: [
-        //             { value: '', displayValue: 'Все' },
-        //             { value: 0, displayValue: 'Без пересадок' },
-        //             { value: 1, displayValue: '1 пересадка' },
-        //             { value: 2, displayValue: '2 пересадки' },
-        //             { value: 3, displayValue: '3 пересадки' },
-        //         ]
-        //     },
-        //     value: '',
-        // }
+  state = {
+    currency: {
+      label: 'Валюта',
+      elementType: 'currency',
+      elementConfig: {
+        options: [
+          { value: 'rub', displayValue: 'RUB' },
+          { value: 'usd', displayValue: 'USD' },
+          { value: 'eur', displayValue: 'EUR' }
+        ]
+      },
+      value: 'rub'
     }
+    // stops: {
+    //     label: 'Количество пересадок',
+    //     elementType: 'checkbox',
+    //     elementConfig: {
+    //         options: [
+    //             { value: '', displayValue: 'Все' },
+    //             { value: 0, displayValue: 'Без пересадок' },
+    //             { value: 1, displayValue: '1 пересадка' },
+    //             { value: 2, displayValue: '2 пересадки' },
+    //             { value: 3, displayValue: '3 пересадки' },
+    //         ]
+    //     },
+    //     value: '',
+    // }
+  };
 
-    render() {
-        const {
-            currency
-        } = this.state;
+  render() {
+    const { currency } = this.state;
 
-        return (
-            <aside className="filters">
-                <Exchange
-                    label={currency.label}
-                    elementConfig={currency.elementConfig}
-                    elementType={currency.elementType}
-                    value={currency.value}
-                />
-                
-                {/* <div className="filter-params">
+    return (
+      <aside className="filters">
+        <Exchange
+          label={currency.label}
+          elementConfig={currency.elementConfig}
+          elementType={currency.elementType}
+          value={currency.value}
+        />
+
+        {/* <div className="filter-params">
                     <div className="filter-params__header">
                         <h5 className="filter-params__title">Количество пересадок</h5>
                     </div>
@@ -68,9 +66,9 @@ class Filters extends Component {
                         </div>
                     </div>
                 </div> */}
-            </aside>
-        );
-    }
-};
+      </aside>
+    );
+  }
+}
 
 export default Filters;
