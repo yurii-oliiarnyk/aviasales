@@ -1,18 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import './Exchange.scss';
 import ParamsHeader from '../ParamsHeader/ParamsHeader';
 
-import * as actions from '../../../store/actions/exchange';
-
-const exchange = props => {
+const checkbox = props => {
   const { label, elementType, elementConfig, currency } = props;
+
+  const classes = ['filter-params', 'filter-params--' + elementType];
 
   const onCurrencyChange = key => {
     props.onCurrencyChange(key);
   };
 
-  const classes = ['filter-params', 'filter-params--' + elementType];
+  // const onCurrencyChange = key => {
+  //   props.onCurrencyChange(key);
+  // };
 
   const items = elementConfig.options.map(el => {
     return (
@@ -21,10 +21,16 @@ const exchange = props => {
           onClick={() => onCurrencyChange(el.value)}
           href="#"
           className={el.value === currency ? 'is-active' : ''}
-          href="#"
         >
           {el.displayValue}
         </a>
+        {el.only ? (
+          <a href="#" onClick={() => onCurrencyChange(el.value)}>
+            Только
+          </a>
+        ) : (
+          ''
+        )}
       </li>
     );
   });
@@ -37,19 +43,4 @@ const exchange = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    currency: state.currency
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onCurrencyChange: currency => dispatch(actions.changeCurrency(currency))
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(exchange);
+export default checkbox;

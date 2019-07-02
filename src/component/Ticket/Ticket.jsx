@@ -15,7 +15,6 @@ const ticket = props => {
     departure_time,
     arrival_date,
     arrival_time,
-    carrier,
     stops,
     price
   } = props;
@@ -44,7 +43,7 @@ const ticket = props => {
           <div className="ticket-time ticket-time--departure">{departure_time}</div>
           <div className="ticket-stops">
             {stops ? stops + ' ' + (stops === 1 ? 'Пересадка' : 'Пересадки') : null}
-            <span></span>
+            <span />
           </div>
           <div className="ticket-time ticket-time--arriaval">{arrival_time}</div>
         </div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Exchange from '../../component/Params/Exchange/Exchange';
+import Exchange from '../../component/Params/ParamsExchange/ParamsExchange';
+import Checkboxes from '../../component/Params/ParamsCheckbox/ParamsCheckbox';
 import './Filters.scss';
 
 class Filters extends Component {
@@ -15,25 +16,25 @@ class Filters extends Component {
         ]
       },
       value: 'rub'
+    },
+    checkboxes: {
+      label: 'Количество пересадок',
+      elementType: 'checkboxes',
+      elementConfig: {
+        options: [
+          { value: '*', displayValue: 'Все' },
+          { value: '0', displayValue: 'Без пересадок', only: true },
+          { value: '1', displayValue: '1 пересадка', only: true },
+          { value: '2', displayValue: '2 пересадка', only: true },
+          { value: '3', displayValue: '3 пересадка', only: true }
+        ]
+      },
+      value: '*'
     }
-    // stops: {
-    //     label: 'Количество пересадок',
-    //     elementType: 'checkbox',
-    //     elementConfig: {
-    //         options: [
-    //             { value: '', displayValue: 'Все' },
-    //             { value: 0, displayValue: 'Без пересадок' },
-    //             { value: 1, displayValue: '1 пересадка' },
-    //             { value: 2, displayValue: '2 пересадки' },
-    //             { value: 3, displayValue: '3 пересадки' },
-    //         ]
-    //     },
-    //     value: '',
-    // }
   };
 
   render() {
-    const { currency } = this.state;
+    const { currency, checkboxes } = this.state;
 
     return (
       <aside className="filters">
@@ -43,29 +44,12 @@ class Filters extends Component {
           elementType={currency.elementType}
           value={currency.value}
         />
-
-        {/* <div className="filter-params">
-                    <div className="filter-params__header">
-                        <h5 className="filter-params__title">Количество пересадок</h5>
-                    </div>
-                    <div className="filter-item__wrap">
-                        <div className="filter-item__input">
-                            <input name="rub" type="checkbox" />
-                            <label>ВСЕ</label>
-                            <span>Только</span>
-                        </div>
-                        <div className="filter-item__input">
-                            <input name="rub" type="checkbox" />
-                            <label>USD</label>
-                            <span>Только</span>
-                        </div>
-                        <div className="filter-item__input">
-                            <input name="rub" type="checkbox" />
-                            <label>EUR</label>
-                            <span>Только</span>
-                        </div>
-                    </div>
-                </div> */}
+        <Checkboxes
+          label={checkboxes.label}
+          elementConfig={checkboxes.elementConfig}
+          elementType={checkboxes.elementType}
+          value={checkboxes.value}
+        />
       </aside>
     );
   }
