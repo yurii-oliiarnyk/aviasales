@@ -80,8 +80,8 @@ ticket.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    currentCurrency: state.currency,
-    exchangeRates: state.exchangeRates
+    currentCurrency: state.exchange.currency,
+    exchangeRates: state.exchange.exchangeRates
   };
 };
 

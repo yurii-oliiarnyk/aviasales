@@ -5,10 +5,16 @@ import './index.scss';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import reducer from './store/reducers/exchange';
+import exchange from './store/reducers/exchange';
+import filter from './store/reducers/filter';
 
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
+
+const reducer = combineReducers({
+  filter,
+  exchange
+});
 
 const composeEnhancers =
   process.env.NODE_ENV === 'development'

@@ -8,7 +8,8 @@ import * as actions from '../../../store/actions/exchange';
 const exchange = props => {
   const { label, elementType, elementConfig, currency } = props;
 
-  const onCurrencyChange = key => {
+  const onCurrencyChange = (event, key) => {
+    event.preventDefault();
     props.onCurrencyChange(key);
   };
 
@@ -18,7 +19,7 @@ const exchange = props => {
     return (
       <li key={el.value} className="filter-params__item">
         <a
-          onClick={() => onCurrencyChange(el.value)}
+          onClick={event => onCurrencyChange(event, el.value)}
           href="#"
           className={el.value === currency ? 'is-active' : ''}
         >
@@ -38,7 +39,7 @@ const exchange = props => {
 
 const mapStateToProps = state => {
   return {
-    currency: state.currency
+    currency: state.exchange.currency
   };
 };
 

@@ -29,7 +29,7 @@ class Filters extends Component {
           { value: '3', displayValue: '3 пересадка', only: true }
         ]
       },
-      value: '*'
+      value: ['*']
     }
   };
 
